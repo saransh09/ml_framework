@@ -1,0 +1,53 @@
+-------------------------------------------------------------------
+CODESERVER
+-------------------------------------------------------------------
+> Make a habit of using CodeServer, this can also be used when you are working remotely on servers. It basically gives you a VSCode like environment
+> Navigate to the github page from where you can install codeserver, link : https://github.com/cdr/code-server/releases/download/3.2.0/code-server-3.2.0-linux-x86_64.tar.gz
+> Run the binary using the following command
+PASSWORD=<pass> ./code-server --host 0.0.0.0 --port 10000(any port that you want basically)
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+PROJECT STRUCTURING
+-------------------------------------------------------------------
+> Now we need to structure the project properly.
+---
+ |
+ |--src/
+     |-- train.py
+     |-- __init__.py
+     |-- metrics.py
+     |-- create_folds.py
+     |-- predict.py
+     |-- dataset.py
+     |-- loss.py
+     |-- utils.py
+     |-- feature_generator.py
+     |-- dispatcher.py
+     |-- engine.py
+ |--input/
+ |--models/
+ |.git/
+ |.gitignore
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+.gitignore
+-------------------------------------------------------------------
+> Use the standard .gitignore template for python provided by github
+	link : https://github.com/github/gitignore/blob/master/Python.gitignore
+> We have added additional items based on our project structuring
+```
+# input data and models
+input/
+models/
+
+# data files
+*.csv
+*.h5
+*.pkl
+*.pth
+```
+-------------------------------------------------------------------
+
+
