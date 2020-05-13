@@ -120,3 +120,11 @@ dispatch.py
 --------------------------------------------------------------------------------------------------------------------------------------
 PART 4 : CROSS VALIDATION FRAMEWORK
 --------------------------------------------------------------------------------------------------------------------------------------
+
+Different types of cross validations:
+1) KFold
+2) Stratified KFold --> Maintains the ratio in the target labels (important in case of class imbalance)
+3) Multilabel CLassification
+4) Regression cross-validation
+5) Hold-out boased validation
+
