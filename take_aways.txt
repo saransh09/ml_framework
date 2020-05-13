@@ -1,3 +1,8 @@
+
+--------------------------------------------------------------------------------------------------------------------------------------
+PART 1 : SYSTEM SETUP
+--------------------------------------------------------------------------------------------------------------------------------------
+
 -------------------------------------------------------------------
 CODESERVER
 -------------------------------------------------------------------
@@ -51,3 +56,67 @@ models/
 -------------------------------------------------------------------
 
 
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+PART 2 : GATHER DATA AND BUILD CROSS VALIDATION
+--------------------------------------------------------------------------------------------------------------------------------------
+
+PS : Right now we are using the categorical feature encoding challenge dataset
+
+-------------------------------------------------------------------
+create_folds.py
+-------------------------------------------------------------------
+> Create K-folds for our problem to perform K-fold cross validation while training
+> We will use the sklearn.model_selection.StratifiedKFolds for the same
+> We will create a generic script that will do this thing for us
+> code is available in src/create_folds.py
+-------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+PART 3 : TRAINING A BASIC MODEL
+--------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------
+train.py
+-------------------------------------------------------------------
+> Now a basic classifier will be trained over this
+> Using K_fold validation, therefore it is good to use a k_fold map (check the code)
+> train_data and fold to be used can be picked up from an environment variable, so that we can have an abstracted code
+> The labels can be label encoded(["yes","no","maybe"] --> [0,1,2]) (Check code to do that)
+> use a basic classifier from the sklearn packages (right now random forest)
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+
+NOTE : ALL THE SCRIPTS ARE RUN USING src.script_name --> this maintains the level at the top of the directory 
+> Interesting, I never did this before, so this is how it is going to be from now on
+> Structuring machine learning projects from day 1 is a must
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+run.sh
+-------------------------------------------------------------------
+> To handle the enivronment variables, it is a good idea to have a script to run the python file
+> use EXPORT <ENVIRONMENT_VARIABLE> = <VALUE> --> to define environment variables in bash script
+-------------------------------------------------------------------
+
+
+-------------------------------------------------------------------
+dispatch.py
+-------------------------------------------------------------------
+> We can have multiple models that we train, which we can run in the run.sh script and we can comfortably take a break
+> This is achieved using this (check dispatch --> map of possible models --> and the subsequent commands)
+> We will use this idea from the days ahead, redundancy in the code will be minimal through this
+> NOTE in the run.sh --> Take MODEL name using $1 --> first argument in the python -m command
+> save the models using joblib (check train.py) --> for each model with proper naming convention
+-------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+PART 4 : CROSS VALIDATION FRAMEWORK
+--------------------------------------------------------------------------------------------------------------------------------------
